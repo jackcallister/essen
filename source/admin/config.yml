@@ -1,3 +1,22 @@
 backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
+
+media_folder: source/images/uploads
+public_folder: /images/uploads
+
+collections:
+
+  - name: ingredients
+    label: Ingredients
+    folder: source/ingredients/
+    extension: .html.md
+    format: frontmatter
+    create: true
+    slug: '{{title}}'
+    fields:
+      - {label: Title, name: title, widget: string, required: true}
+      - {label: Publish Date, name: date, widget: datetime}
+      - {label: Description, name: description, widget: string}
+      - {label: Image, name: image, widget: image}
+      - {label: Body, name: body, widget: markdown}
